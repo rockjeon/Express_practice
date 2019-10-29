@@ -20,15 +20,19 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/store', STROEAPI);
-app.use('/user', USERAPI);
 app.use('/', PAGEAPI); 
+app.use('/API_STORE', STROEAPI);
+app.use('/API_USER', USERAPI);
+
 app.use('/signin', PAGEAPI);
 app.use('/signup', PAGEAPI);
+// app.use('/sign_up', PAGEAPI);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

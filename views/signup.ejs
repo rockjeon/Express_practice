@@ -8,9 +8,18 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <div class="sign-in" style="text-align: center">
+    <div class="signup" style="text-align: center">
         <h1 style="text-align: center">SIGN UP</h1>
-        <form name="signin_id" action="" method="post">
+        
+        <form action = "/API_USER/user/sign_up" method = "post">
+            NAME: <input type = "text" name = "user_name" placeholder = "Please enter Name"> <br> 
+            ID: <input type = "text" name = "user_Id" placeholder = "Please enter ID"> <br> 
+            PASSWORD: <input type = "password" name = "user_pw" placeholder = "Please enter Password"> <br> 
+            E-mail: <input type = "text" name = "user_email" placeholder = "Please enter E-mail"> <br> 
+            <input type ="submit" value= "SIGN UP">  
+        </form>
+        
+        <!-- <form name="signin_id" action="" method="post">
             NAME : <input type="text" name="user_name" value="" placeholder="Please enter Name.">
         </form>
         
@@ -25,10 +34,8 @@
         <form name="signin_email" action="" method="post">
             E-mail : <input type="emil" name="user_email" value="" placeholder="Please enter E-mail.">
         </form>
-         
-        
-        
-        <button type="submit"> Sign up! </button>
+          -->
+    
     </div>
 </body>
 </html>

@@ -1,5 +1,7 @@
 const express = require('express')
 const route = express.Router()
+const users = require('../../models/users')
+
 
 // get user info
 route.get('/', (req, res) => {
@@ -9,10 +11,22 @@ route.get('/', (req, res) => {
 })
 
 // regist user info
-route.post('/', (req, res) => {
-    return res.status(201).json({
-        msg: 'regist user info'
+route.post('/sign_up', (req, res) => {
+    let body = req.body;
+    console.log(body)
+    users.create({
+        name: body.user_name,
+        Id: body.user_Id,
+        password: body.user_pw,
+        email: body.user_email
     })
+        .then(result => {
+            res.redirect('/signin')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
 })
 
 // user login
